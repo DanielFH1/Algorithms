@@ -1,13 +1,14 @@
-n= int(input())
-A = [int(input()) for _ in range(n)]
+import sys
 
-for i in range(n-1):
-    min_index = i
-    for j in range(i+1,n):
-        if A[min_index] > A[j]:
-            min_index = j
-    if min_index != i:
-        A[min_index], A[i] = A[i] , A[min_index]
-        
-for num in A:
+N = int(sys.stdin.readline())
+arr = []
+for _ in range(N):
+    arr.append(int(sys.stdin.readline()))
+    
+for i in range(N-1):
+    for j in range(N-1-i):
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1] , arr[j]
+            
+for num in arr:
     print(num)
